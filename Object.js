@@ -14,22 +14,24 @@ const {
   fullName: { first, last },
 } = stoner;
 
-console.log(first, last);
+// console.log(first, last);
 
 // for(key in stoner){
 //     console.log(stoner[key]);
 // }
 
-function findText(obj) {
-  let stringArray = [];
-  for (key in obj) {
-    if (typeof obj[key] === "string") {
-      stringArray.push(obj[key]);
+
+//Find string in object
+function findText(obj){
+  let result = [];
+  for(key in obj){
+    if(typeof obj[key] === "string"){
+      result.push(obj[key])
     }
   }
-  return stringArray;
+  return result
 }
-// console.log(findText(stoner));
+console.log(findText(stoner));
 
 //Multiply by two function if the value of obj in nums is number
 let nums = {
@@ -68,8 +70,30 @@ const stonerObj = {
   name: "Lian",
   age: 27,
   job: "devo",
+  hobby: {
+    instrument : 'guitar',
+    interest : ['DIY','redesign','custom_design',]
+  },
   "joint per day": 1,
 };
+
+const profession = 'job';
+
+const $kill_$et = 'instrument'
+
+stonerObj.height = 180
+
+const Max_Height = 'height'
+
+//dot notation
+// console.log(stonerObj.job);
+// console.log(stonerObj.hobby.interest);
+
+//bracket notation
+// console.log(stonerObj['joint per day']);
+// console.log(stonerObj[profession]);
+// console.log(stonerObj.hobby[$kill_$et]);
+// console.log(stonerObj[Max_Height]);
 
 //shallow copy
 b = stonerObj
@@ -79,10 +103,9 @@ b = stonerObj
 // const cloneStoneObj = JSON.parse(JSON.stringify(stonerObj));
 const cloneStoneObj = {...stonerObj}
 
-
 stonerObj.name = "lian sun";
-console.log(stonerObj);
-console.log(cloneStoneObj);
-console.log(b);
+// console.log(stonerObj);
+// console.log(cloneStoneObj);
+// console.log(b);
 
 

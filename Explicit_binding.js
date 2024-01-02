@@ -4,7 +4,7 @@ function sayHello(age) {
   return "Hello " + this.name + " is " + age;
 }
 console.log(sayHello.call(obj, 27));
-
+ 
 //.call polyfill
 Function.prototype.myCall = function (context = {}, ...args) {
   if (typeof this !== "function") {

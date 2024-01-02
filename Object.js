@@ -20,16 +20,15 @@ const {
 //     console.log(stoner[key]);
 // }
 
-
 //Find string in object
-function findText(obj){
+function findText(obj) {
   let result = [];
-  for(key in obj){
-    if(typeof obj[key] === "string"){
-      result.push(obj[key])
+  for (key in obj) {
+    if (typeof obj[key] === "string") {
+      result.push(obj[key]);
     }
   }
-  return result
+  return result;
 }
 console.log(findText(stoner));
 
@@ -71,19 +70,32 @@ const stonerObj = {
   age: 27,
   job: "devo",
   hobby: {
-    instrument : 'guitar',
-    interest : ['DIY','redesign','custom_design',]
+    instrument: "guitar",
+    interest: ["DIY", "redesign", "custom_design"],
   },
   "joint per day": 1,
 };
 
-const profession = 'job';
+// const {hobby} = stonerObj;
+// const {instrument,interest} = hobby
 
-const $kill_$et = 'instrument'
+const {
+  hobby: { instrument, interest },
+} = stonerObj;
 
-stonerObj.height = 180
+console.log(instrument);
+console.log(interest);
 
-const Max_Height = 'height'
+console.log(Object.keys(stonerObj));
+console.log(Object.values(stonerObj));
+
+const profession = "job";
+
+const $kill_$et = "instrument";
+
+stonerObj.height = 180;
+
+const Max_Height = "height";
 
 //dot notation
 // console.log(stonerObj.job);
@@ -96,16 +108,14 @@ const Max_Height = 'height'
 // console.log(stonerObj[Max_Height]);
 
 //shallow copy
-b = stonerObj
+b = stonerObj;
 
 //deep copy
 // const cloneStoneObj = Object.assign({}, stonerObj);
 // const cloneStoneObj = JSON.parse(JSON.stringify(stonerObj));
-const cloneStoneObj = {...stonerObj}
+const cloneStoneObj = { ...stonerObj };
 
 stonerObj.name = "lian sun";
 // console.log(stonerObj);
 // console.log(cloneStoneObj);
 // console.log(b);
-
-

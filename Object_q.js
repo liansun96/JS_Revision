@@ -69,6 +69,18 @@ const calculator = {
 console.log(calculator.add(2,3))
 console.log(calculator.multiply(2,3))
 
+//What is the purpose of the Object.create() method in JavaScript? Provide an example.
+//Ans : Object.create() creates a new object with the specified prototype object. It allows for explicit control over the prototype chain.
 
+const developer = {
+  createApp : function(){
+    console.log('Some awsome app');
+  }
+}
 
+developer.createApp();
+
+const webDevo = Object.create(developer)
+
+webDevo.createApp();
 

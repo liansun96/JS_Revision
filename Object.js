@@ -10,15 +10,32 @@ const stoner = {
   },
 };
 
+// console.log(Object.keys(stoner))
+// console.log(Object.values(stoner))
+console.log(Object.entries(stoner))
+
 const {
   fullName: { first, last },
 } = stoner;
 
 // console.log(first, last);
 
+//(for...in) loop
 // for(key in stoner){
 //     console.log(stoner[key]);
 // }
+
+
+//(for...in) loop
+for(var key in stoner){
+  if(stoner.hasOwnProperty(key)){
+    console.log( key , stoner[key]);
+  }
+}
+
+//Using Objefct.keys() and forEach loop
+Object.keys(stoner).forEach((key)=> console.log(key, stoner[key]))
+
 
 //Find string in object
 function findText(obj) {

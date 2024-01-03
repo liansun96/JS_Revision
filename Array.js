@@ -1,5 +1,7 @@
 const nums = [1, 2, 3, 4, 5];
 
+nums.forEach((x,i,arr)=> console.log(x,i,arr))
+
 //Polyfill for map()
 Array.prototype.myMap = function (cb) {
   let temp = [];
@@ -51,7 +53,7 @@ const sumOfnums = () =>
 let stoners = [
   { name: "Shoke", level: 3, joints: 3 },
   { name: "Moe Gyi", level: 4, joints: 2 },
-  { name: "Michale", level: 5, joints: 5 },
+  { name: "Michael", level: 5, joints: 5 },
   { name: "Myo Gyi", level: 6, joints: 4 },
 ];
 

@@ -10,9 +10,19 @@ const stoner = {
   },
 };
 
+if("job" in stoner){
+  console.log(true , stoner.job);
+}else{
+  console.log(false);
+}
+
+if(stoner.hasOwnProperty("joint per day")){
+  console.log(true , stoner["joint per day"]);
+}
+
 // console.log(Object.keys(stoner))
 // console.log(Object.values(stoner))
-console.log(Object.entries(stoner))
+// console.log(Object.entries(stoner))
 
 const {
   fullName: { first, last },

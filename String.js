@@ -33,32 +33,92 @@ function findLongestWord(sentence) {
   }
   return longestWord;
 }
-const long = findLongestWord("Hello motherfucker getout of my room");
+const long = findLongestWord(
+  "wake up in the morning and I ask myself Is life worth living"
+);
 console.log(long);
 
-
 //find the longest words (for of loop)
-function findLongestWordOne(sentence){
-    let words = sentence.split(" ");
-    let longestWord = ''
-    for(let word of words){
-        if(word.length > longestWord.length){
-            longestWord = word
-        }
+function findLongestWordOne(sentence) {
+  let words = sentence.split(" ");
+  let longestWord = "";
+  for (let word of words) {
+    if (word.length > longestWord.length) {
+      longestWord = word;
     }
-    return longestWord
+  }
+  return longestWord;
 }
 
-const longOne = findLongestWord("Hello motherfucker getout of my room");
+const longOne = findLongestWord(
+  "wake up in the morning and I ask myself Is life worth living"
+);
 console.log(longOne);
 
 //find the longest word (reduce)
-function findLongestWordTwo(sentence){
-    let words = sentence.split(" ");
-    let longestWord = words.reduce((acc , curr)=>{
-        return curr.length > acc.length ? curr : acc
-    },'')
-    return longestWord
+function findLongestWordTwo(sentence) {
+  let words = sentence.split(" ");
+  let longestWord = words.reduce((acc, curr) => {
+    return curr.length > acc.length ? curr : acc;
+  }, "");
+  return longestWord;
 }
-const longTwo = findLongestWord("Hello motherfucker getout of my room");
+const longTwo = findLongestWord(
+  "wake up in the morning and I ask myself Is life worth living"
+);
 console.log(longTwo);
+
+//The factorial of a number is the multiplication of all the numbers between 1 and the number itself. It is written like this: n!. For example, 4! is shorthand for 4 × 3 × 2 × 1 = 24.
+//Factorial Calculation
+function factorial(n) {
+  if (n === 0 || n === 1) {
+    return 1;
+  }
+  return n * factorial(n - 1);
+}
+
+// console.log(factorial(3));
+
+//Factorial Calculation using (for...loop)
+// program to find the factorial of a number
+// take input from the user
+// const number = parseInt(prompt("Enter a positive integer: "));
+
+// checking if number is negative
+// if (number < 0) {
+//   console.log("Error! Factorial for negative number does not exist.");
+// }
+
+// if number is 0
+// else if (number === 0) {
+//   console.log(`The factorial of ${number} is 1.`);
+// }
+
+// if number is positive
+// else {
+//   let fact = 1;
+//   for (i = 1; i <= number; i++) {
+//     fact *= i;
+//   }
+//   console.log(`The factorial of ${number} is ${fact}.`);
+// }
+
+//Find the First Non-Repeated Character in a String.
+function firstNonRepeatedChar(str){
+    for(let i = 0; i < str.length; i ++){
+        let char = str[i]
+        console.log(str.indexOf(char) ,str.lastIndexOf(char) , str[i]);
+        
+        if(str.indexOf(char) === str.lastIndexOf(char)){
+        console.log(str.indexOf(char) ,str.lastIndexOf(char) , str[i]);
+
+            return char
+        }
+    }
+    return null
+}
+
+// Example usage:
+const inputString = "high";
+const firstNonRepeated = firstNonRepeatedChar(inputString);
+console.log("The first non-repeated character is:", firstNonRepeated);

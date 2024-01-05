@@ -103,6 +103,15 @@ const stonerObj = {
   "joint per day": 1,
 };
 
+//Clone Object
+//shallow copy
+b = stonerObj;
+
+//deep copy
+// const cloneStoneObj = Object.assign({}, stonerObj);
+// const cloneStoneObj = JSON.parse(JSON.stringify(stonerObj));
+const cloneStoneObj = { ...stonerObj };
+
 // const {hobby} = stonerObj;
 // const {instrument,interest} = hobby
 
@@ -134,13 +143,6 @@ const Max_Height = "height";
 // console.log(stonerObj.hobby[$kill_$et]);
 // console.log(stonerObj[Max_Height]);
 
-//shallow copy
-b = stonerObj;
-
-//deep copy
-// const cloneStoneObj = Object.assign({}, stonerObj);
-// const cloneStoneObj = JSON.parse(JSON.stringify(stonerObj));
-const cloneStoneObj = { ...stonerObj };
 
 stonerObj.name = "lian sun";
 // console.log(stonerObj);

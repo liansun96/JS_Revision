@@ -69,6 +69,7 @@ for (x of arr) {
 //   return result;
 // };
 
+//Array Prototype Flatten Polyfill
 Array.prototype.flatten = function () {
   let result = [];
   for (const value of this) {
@@ -87,4 +88,32 @@ Array.prototype.flatten = function () {
 // console.log([].flatten());
 // console.log([1, 2, 3].flatten());
 // console.log([[1, 2], 3, 4].flatten());
-console.log([[1, 2], [3, [4, 5]], 6].flatten());
+// console.log([[1, 2], [3, [4, 5]], 6].flatten());
+
+const nestedArray = [1, 2, [3, 4, [5, 6]]];
+
+//The flat() method with Infinity as an argument will recursively flatten sub-arrays.
+console.log(nestedArray.flat(Infinity));
+
+//Find the missing number in the array
+const numbers = [1, 2, 3, 4, 6, 7, 8];
+
+function findMissingNum(arr) {
+  let n = arr.length + 1;
+  let sum = (n * (n + 1)) / 2;
+  let arrSum = arr.reduce((acc, val) => acc + val, 0);
+
+  return sum - arrSum;
+}
+console.log(findMissingNum(numbers));
+
+
+//Find the intersection of two Array
+let a = [1, 2, 3, 4];
+let b = [3, 4, 5, 6];
+
+function interset(a,b){
+  return a.filter(value => b.includes(value))
+}
+
+console.log(interset(a,b));

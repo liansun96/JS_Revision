@@ -22,6 +22,14 @@ var person = {
   city: 'Wonderland'
 };
 
+//deep clone object
+
+const cloneObj = JSON.parse(JSON.stringify(person))
+console.log(person);
+console.log(person.name =  "lian");
+console.log(person);
+console.log(cloneObj);
+
 // var desiredProperty = 'job';
 
 // for (var key in myObject) {

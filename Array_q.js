@@ -117,3 +117,35 @@ function interset(a,b){
 }
 
 console.log(interset(a,b));
+
+
+//Sum of Array element (tradational for loop)
+function sumArray(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return sum;
+}
+
+// Example usage:
+const nums = [1, 2, 3, 4, 5];
+console.log(sumArray(nums));
+
+
+// Finding the Maximum Value
+//Question: Create a function that returns the maximum value from an array.
+function maxArray(arr) {
+  if (arr.length === 0) return null; // Return null for an empty array
+  let max = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] > max) {
+      max = arr[i];
+    }
+  }
+  return max;
+}
+
+// Example usage:
+const values = [3, 7, 2, 9, 1, 5];
+console.log(maxArray(values)); 

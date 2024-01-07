@@ -120,12 +120,13 @@ console.log(interset(a,b));
 
 
 //Sum of Array element (tradational for loop)
-function sumArray(arr) {
-  let sum = 0;
-  for (let i = 0; i < arr.length; i++) {
-    sum += arr[i];
+function sumArray(arr){
+  let result = 0
+  for(i = 0; i < arr.length; i ++){
+    result += arr[i]
   }
-  return sum;
+
+  return result
 }
 
 // Example usage:
@@ -135,12 +136,12 @@ console.log(sumArray(nums));
 
 // Finding the Maximum Value
 //Question: Create a function that returns the maximum value from an array.
-function maxArray(arr) {
-  if (arr.length === 0) return null; // Return null for an empty array
-  let max = arr[0];
-  for (let i = 1; i < arr.length; i++) {
-    if (arr[i] > max) {
-      max = arr[i];
+function maxArray(arr){
+  if(arr.length === 0) return null;
+  let max = arr[0]
+  for(i = 0; i < arr.length; i ++){
+    if(arr[i] > max){
+      max = arr[i]
     }
   }
   return max;

@@ -17,28 +17,27 @@ console.log('start');
 
 
 
-const url = "https://fakestoreapi.com/products/1";
-
+const url = "https://fakestoreapi.com/products/15";
 
 function fetchData(url){
     return new Promise((resolve, reject) => {
-        fetch(url).then((res)=>{
+        fetch(url).then((res) => {
             if(!res.ok){
-                throw new Error(`Http error status : ${res.status}`)
+                throw new Error(`Http error status:${res.status}`)
             }
             return res.json();
-        }).then((data)=>{
+        }).then((data)=> {
             resolve(data)
         }).catch((err)=>{
-            console.error(err)
+            console.error(err);
         })
     })
 }
 
-fetchData(url).then((data)=>{
+fetchData(url).then((data)=> {
     console.log(data);
 }).catch((err)=>{
-    console.error(err);
+    console.log(err);
 })
 
 setTimeout(()=>console.log('setTimeout'),0)

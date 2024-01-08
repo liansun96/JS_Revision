@@ -33,6 +33,7 @@ const lessThanFive = () =>
   });
 // console.log(lessThanFive());
 
+
 //Pollyfill for reduce()
 Array.prototype.myReduce = function (cb, initialValue) {
   let accumulator = initialValue;
@@ -138,3 +139,7 @@ function getLargestNumberIndex(arr) {
 }
 
 getLargestNumberIndex(randomArr);
+
+
+
+

@@ -105,43 +105,48 @@ function findMissingNum(arr) {
 
   return sum - arrSum;
 }
-console.log(findMissingNum(numbers));
 
+console.log(findMissingNum(numbers));
 
 //Find the intersection of two Array
 let a = [1, 2, 3, 4];
 let b = [3, 4, 5, 6];
 
-function interset(a,b){
-  return a.filter(value => b.includes(value))
+function interset(a, b) {
+  return a.filter((value) => b.includes(value));
 }
 
-console.log(interset(a,b));
-
+console.log(interset(a, b));
 
 //Sum of Array element (tradational for loop)
-function sumArray(arr){
-  let result = 0
-  for(i = 0; i < arr.length; i ++){
-    result += arr[i]
-  }
+// function sumArray(arr) {
+//   let result = 0;
+//   for (let i = 0; i < arr.length; i++) {
+//     result += arr[i];
+//   }
+//   return result;
+// }
 
-  return result
+function sumArray(arr){
+  let result = 0;
+  for(let i = 0; i < arr.length; i ++){
+    result += arr[i];
+  }
+  return result;
 }
 
 // Example usage:
 const nums = [1, 2, 3, 4, 5];
 console.log(sumArray(nums));
 
-
 // Finding the Maximum Value
 //Question: Create a function that returns the maximum value from an array.
-function maxArray(arr){
-  if(arr.length === 0) return null;
-  let max = arr[0]
-  for(i = 0; i < arr.length; i ++){
-    if(arr[i] > max){
-      max = arr[i]
+function maxArray(arr) {
+  if (arr.length === 0) return null;
+  let max = arr[0];
+  for (i = 0; i < arr.length; i++) {
+    if (arr[i] > max) {
+      max = arr[i];
     }
   }
   return max;
@@ -149,19 +154,63 @@ function maxArray(arr){
 
 // Example usage:
 const values = [3, 7, 2, 9, 1, 5];
-console.log(maxArray(values)); 
-
+console.log(maxArray(values));
 
 //Reversing an Array
 //Question: Create a function that reverses an array without using the built-in reverse() method.
 function reverseArray(arr) {
-  let reversed = [];
+  let result = [];
   for (let i = arr.length - 1; i >= 0; i--) {
-    reversed.push(arr[i]);
+    result.push(arr[i]);
   }
-  return reversed;
+  return result;
 }
 
 // Example usage:
-const original = [1, 2, 3, 4, 5];
+const original = [1, 2, 3, 4, 5, 6, 7];
 console.log(reverseArray(original)); // Output: [5, 4, 3, 2, 1]
+
+//Finding Average of Array Elements
+// function arrayAverage(arr) {
+//   let average = 0;
+//   let sum = arr.reduce((acc, val) => acc + val, 0);
+//   average = sum / arr.length;
+//   return average;
+// }
+
+function arrayAverage(arr) {
+  let average = 0;
+  let sum = arr.reduce((acc, val) => acc + val, 0);
+  return sum / arr.length;
+}
+
+const someArray = [10, 20, 30, 40, 50];
+console.log(arrayAverage(someArray)); 
+
+
+//Checking if array is sorted
+function isArraySorted(arr){
+  for(let i = 0; i < arr.length - 1; i++){
+    if(arr[i] > arr[i + 1])
+    return false
+  }
+  return true;
+}
+
+// Example usage:
+const sortedArray = [1, 2, 3, 4, 5];
+const unsortedArray = [7, 2, 9, 1, 5];
+console.log(isArraySorted(sortedArray)); // Output: true
+console.log(isArraySorted(unsortedArray)); // Output: false
+
+
+//Find second largest number ih Array
+function findSecondLargest(arr){
+  const storedArr = arr.slice().sort(( a , b) => a - b)
+  console.log(storedArr);
+  return sortedArray
+}
+
+// Example usage:
+const randomNumbers = [10, 7, 2, 9, 1, 5];
+console.log(findSecondLargest(randomNumbers)); // Output: 9

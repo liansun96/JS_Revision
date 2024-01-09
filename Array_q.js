@@ -127,15 +127,14 @@ console.log(interset(a, b));
 //   return result;
 // }
 
-function sumArray(arr){
+function sumArray(arr) {
   let result = 0;
-  for(let i = 0; i < arr.length; i ++){
+  for (let i = 0; i < arr.length; i++) {
     result += arr[i];
   }
   return result;
 }
 
-// Example usage:
 const nums = [1, 2, 3, 4, 5];
 console.log(sumArray(nums));
 
@@ -152,7 +151,6 @@ function maxArray(arr) {
   return max;
 }
 
-// Example usage:
 const values = [3, 7, 2, 9, 1, 5];
 console.log(maxArray(values));
 
@@ -166,7 +164,6 @@ function reverseArray(arr) {
   return result;
 }
 
-// Example usage:
 const original = [1, 2, 3, 4, 5, 6, 7];
 console.log(reverseArray(original)); // Output: [5, 4, 3, 2, 1]
 
@@ -185,32 +182,40 @@ function arrayAverage(arr) {
 }
 
 const someArray = [10, 20, 30, 40, 50];
-console.log(arrayAverage(someArray)); 
-
+console.log(arrayAverage(someArray));
 
 //Checking if array is sorted
-function isArraySorted(arr){
-  for(let i = 0; i < arr.length - 1; i++){
-    if(arr[i] > arr[i + 1])
-    return false
+function isArraySorted(arr) {
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (arr[i] > arr[i + 1]) return false;
   }
   return true;
 }
 
-// Example usage:
 const sortedArray = [1, 2, 3, 4, 5];
 const unsortedArray = [7, 2, 9, 1, 5];
 console.log(isArraySorted(sortedArray)); // Output: true
 console.log(isArraySorted(unsortedArray)); // Output: false
 
-
 //Find second largest number ih Array
-function findSecondLargest(arr){
-  const storedArr = arr.slice().sort(( a , b) => a - b)
+function findSecondLargest(arr) {
+  const storedArr = arr.slice().sort((a, b) => a - b);
   console.log(storedArr);
-  return sortedArray
+  return sortedArray;
 }
 
-// Example usage:
 const randomNumbers = [10, 7, 2, 9, 1, 5];
 console.log(findSecondLargest(randomNumbers)); // Output: 9
+
+//Nested Array
+let nestedArr = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+];
+
+for(let i = 0; i < nestedArr.length; i ++){
+  for(let j = 0; j < nestedArr[i].length; j ++){
+    console.log(nestedArr[i][j]);
+  }
+}

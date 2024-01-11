@@ -207,15 +207,40 @@ function findSecondLargest(arr) {
 const randomNumbers = [10, 7, 2, 9, 1, 5];
 console.log(findSecondLargest(randomNumbers)); // Output: 9
 
-//Nested Array
+//Looping Nested Array
 let nestedArr = [
   [1, 2, 3],
   [4, 5, 6],
   [7, 8, 9],
 ];
 
-for(let i = 0; i < nestedArr.length; i ++){
-  for(let j = 0; j < nestedArr[i].length; j ++){
-    console.log(nestedArr[i][j]);
+function LoopNestedArr(arr) {
+  let result = [];
+  for (let i = 0; i < arr.length; i++) {  
+    for (let j = 0; j < arr[i].length; j++) {
+      // console.log(arr[i][j]);
+      result.push(arr[i][j]);
+    }
+  }
+  return result;
+}
+
+for (let i = 0; i < nestedArr.length; i++) {
+  for (let j = 0; j < nestedArr[i].length; j++) {
+    // console.log(nestedArr[i][j]);
   }
 }
+
+console.log(LoopNestedArr(nestedArr));
+
+//Counting Occurrences in an Array
+//How would you count the occurrences of elements in an array?
+let countingArr = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4];
+let frequencyCounter = countingArr.reduce((acc, val) => {
+  acc[val] = (acc[val] || 0) + 1;
+  console.log(acc[val] , acc);
+  return acc;
+}, {});
+
+console.log(frequencyCounter);
+

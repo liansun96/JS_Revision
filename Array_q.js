@@ -16,18 +16,19 @@ const findName = mixArray.map((arr) => {
   return result;
 });
 
-// console.log(findName.flat());
+console.log(findName.flat());
 
-function findName2(arr) {
+function findName2(arr){
   let result = [];
-  for (i = 0; i < arr.length; i++) {
-    if (arr[i].hasOwnProperty("name")) {
-      result.push(arr[i].name);
+  for(let i = 0; i < arr.length; i ++){
+    if(arr[i].hasOwnProperty("name")){
+      result.push(arr[i].name)
     }
   }
-  return result;
+  return result
 }
-// console.log(findName2(mixArray));
+
+console.log(findName2(mixArray));
 
 const findName3 = mixArray.map((arr) => {
   let result = [];
@@ -46,11 +47,11 @@ arr.forEach((x) => copyArr.push(x));
 // console.log(copyArr);
 
 for (x in arr) {
-  // console.log(typeof x);
+  console.log(typeof x);
 }
 
 for (x of arr) {
-  // console.log(typeof x);
+  console.log(typeof x);
 }
 
 //Flatten Array Polyfill
@@ -175,8 +176,7 @@ console.log(reverseArray(original)); // Output: [5, 4, 3, 2, 1]
 //   return average;
 // }
 
-function arrayAverage(arr) {
-  let average = 0;
+function arrayAverage(arr) {  
   let sum = arr.reduce((acc, val) => acc + val, 0);
   return sum / arr.length;
 }
@@ -199,13 +199,12 @@ console.log(isArraySorted(unsortedArray)); // Output: false
 
 //Find second largest number ih Array
 function findSecondLargest(arr) {
-  const storedArr = arr.slice().sort((a, b) => a - b);
-  console.log(storedArr);
-  return sortedArray;
+  const sortedArr = arr.slice().sort((a, b) => b - a);
+  // console.log(sortedArr[1]);
+  return sortedArr[1];
 }
-
-const randomNumbers = [10, 7, 2, 9, 1, 5];
-console.log(findSecondLargest(randomNumbers)); // Output: 9
+const randomNumbers = [10, 5, 8, 20, 15];
+console.log(findSecondLargest(randomNumbers));
 
 //Looping Nested Array
 let nestedArr = [

@@ -28,7 +28,7 @@ const {
   fullName: { first, last },
 } = stoner;
 
-// console.log(first, last);
+console.log(first, last);
 
 //(for...in) loop
 // for(key in stoner){

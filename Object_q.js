@@ -1,32 +1,37 @@
 let myObject = { name: "John", age: 25, city: "New York", job: "devo" };
 
+//Way to Iterating Over Object
 for (key in myObject) {
-  // console.log(key + ":" + myObject[key]);
+  console.log(key + ":" + myObject[key]);
 }
 
-// Object.keys(myObject).forEach((key) => {
-//   console.log(key + ": " + myObject[key]);
-// });
+for(const [key , value] of Object.entries(myObject)){
+  console.log(key + " : " + value);
+}
 
-// Object.entries(myObject).forEach(([key, value]) => {
-//   console.log(key + ": " + value);
-// });
+Object.entries(myObject).forEach(([key, value]) => {
+  console.log(key + " : " + value);
+});
 
-// Object.values(myObject).forEach((value) => {
-//   console.log(value);
-// });
+Object.keys(myObject).forEach((key) => {
+  console.log(key + ": " + myObject[key] );
+});
+
+Object.values(myObject).forEach((value) => {
+  console.log(value);
+});
 
 var person = {
-  name: 'Alice',
+  name: "Alice",
   age: 30,
-  city: 'Wonderland'
+  city: "Wonderland",
 };
 
 //deep clone object
 
-const cloneObj = JSON.parse(JSON.stringify(person))
+const cloneObj = JSON.parse(JSON.stringify(person));
 console.log(person);
-console.log(person.name =  "lian");
+console.log((person.name = "lian"));
 console.log(person);
 console.log(cloneObj);
 
@@ -44,51 +49,61 @@ console.log(cloneObj);
 //   console.log('The property exists using hasOwnProperty:', desiredProperty);
 // }
 
-function findName(obj){
-  let result = '';
-  if(obj.hasOwnProperty("name")){
-    result += obj.name
+function findName(obj) {
+  let result = "";
+  if (obj.hasOwnProperty("name")) {
+    result += obj.name;
   }
-  return result
+  return result;
 }
 // console.log(findName(myObject))
 
 const population = {
   male: 4,
   female: 93,
-  others: 10
+  others: 10,
 };
 
 const genders = Object.keys(population);
-genders.forEach((gender) => console.log(gender) , console.log(population['male']));
+genders.forEach(
+  (gender) => console.log(gender),
+  console.log(population["male"])
+);
 // Output: "male", "female", "others"
-
 
 //method
 const calculator = {
-  add : function(a,b){
-    return a+b
+  add: function (a, b) {
+    return a + b;
   },
-  multiply : function (a,b){
-    return a*b
-  }
-}
+  multiply: function (a, b) {
+    return a * b;
+  },
+};
 
-console.log(calculator.add(2,3))
-console.log(calculator.multiply(2,3))
+console.log(calculator.add(2, 3));
+console.log(calculator.multiply(2, 3));
 
 //What is the purpose of the Object.create() method in JavaScript? Provide an example.
 //Ans : Object.create() creates a new object with the specified prototype object. It allows for explicit control over the prototype chain.
-
 const developer = {
-  createApp : function(){
-    console.log('Some awsome app');
-  }
-}
+  createApp: function () {
+    console.log("Some awsome app");
+  },
+};
 
 developer.createApp();
 
-const webDevo = Object.create(developer)
+const webDevo = Object.create(developer);
 
 webDevo.createApp();
 
+//What is an object constructor?
+function Book(title, author) {
+  this.title = title;
+  this.author = author;
+}
+
+const myBook = new Book('Giant on my shoulder' , 'Kyar Pauk')
+const mine = new Book('Developer' , 'Lian Sun')
+console.log(myBook , mine);

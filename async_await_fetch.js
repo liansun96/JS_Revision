@@ -1,6 +1,6 @@
-let url = "https://fakestoreapi.com/products/1";
+const url = "https://fakestoreapi.com/products/1";
 
-async function fetchData(url) {
+const fetchData = async (url) => {
   try {
     const res = await fetch(url);
     if (!res.ok) {
@@ -11,10 +11,8 @@ async function fetchData(url) {
   } catch (error) {
     console.error(error);
   }
-}
+};
 
-fetchData(url).then((data)=> {
- console.log(data);
-}).catch((err)=>{
-    console.error(err);
-})
+fetchData(url)
+  .then((data) => console.log(data))
+  .catch((err) => console.error(err));

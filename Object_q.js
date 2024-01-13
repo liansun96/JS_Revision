@@ -5,7 +5,7 @@ for (key in myObject) {
   console.log(key + ":" + myObject[key]);
 }
 
-for(const [key , value] of Object.entries(myObject)){
+for (const [key, value] of Object.entries(myObject)) {
   console.log(key + " : " + value);
 }
 
@@ -14,7 +14,7 @@ Object.entries(myObject).forEach(([key, value]) => {
 });
 
 Object.keys(myObject).forEach((key) => {
-  console.log(key + ": " + myObject[key] );
+  console.log(key + ": " + myObject[key]);
 });
 
 Object.values(myObject).forEach((value) => {
@@ -104,6 +104,42 @@ function Book(title, author) {
   this.author = author;
 }
 
-const myBook = new Book('Giant on my shoulder' , 'Kyar Pauk')
-const mine = new Book('Developer' , 'Lian Sun')
-console.log(myBook , mine);
+const myBook = new Book("Giant on my shoulder", "Kyar Pauk");
+const mine = new Book("Developer", "Lian Sun");
+console.log(myBook, mine);
+
+//Object currying in the context of method
+const calculation = {
+  multiply: function (x) {
+    return function (y) {
+      return x * y;
+    };
+  },
+};
+const multiplyByTwo = calculation.multiply(2);
+const multiplyByFive = calculation.multiply(5);
+console.log(multiplyByTwo(5));
+console.log(multiplyByFive(5));
+
+//Implement a function to calculate the depth of a nested object
+function calculateDepth(obj) {
+  if (typeof obj !== "object" || obj === null) {
+    return 0;
+  }
+
+  const maxDepth = 0;
+
+  for (let key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      if (typeof obj[key] === "object") {
+        const currentDepth = 1 + calculateDepth(obj[key]);
+        maxDepth = Math.max(maxDepth, currentDepth);
+      }
+    }
+  }
+
+  return maxDepth;
+}
+
+const nestedObject = { a: { b: { c: { d: 1 } } }, e: 2 };
+console.log(calculateDepth(nestedObject));

@@ -1,33 +1,33 @@
-const colors = ["red", "green", "blue"];
+function calculateDepth(obj) {
+  if (typeof obj !== 'object' || obj === null) {
+    return 0;
+  }
 
-// Using for...of loop
-for (const color of colors) {
-  console.log(color);
+  let maxDepth = 0;
+
+  for (let key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      if (typeof obj[key] === 'object') {
+        const currentDepth = 1 + calculateDepth(obj[key]);
+        maxDepth = Math.max(maxDepth, currentDepth);
+      }
+    }
+  }
+
+  return maxDepth;
 }
 
-// Using for...in loop
-for (const x in colors) {
-  console.log(colors[x]);
-}
-
-const person = {
-  name: "Emily",
-  age: 25,
-  fly: function () {
-    console.log("Flying...");
+// Example usage:
+const nestedObject = {
+  a: 1,
+  b: {
+    c: 2,
+    d: {
+      e: 3
+    }
   },
+  f: 4
 };
 
-const descriptors = Object.getOwnPropertyDescriptors(person);
-console.log(descriptors);
-
-// Using Object.entries()
-for (const [key, value] of Object.entries(person)) {
-  console.log(`${key}: ${value}`);
-}
-
-const personOne = {};
-
-Object.setPrototypeOf(personOne, person);
-person.fly()
-personOne.fly()
+const depth = calculateDepth(nestedObject);
+console.log("Depth of the nested object:", depth);

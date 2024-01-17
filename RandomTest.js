@@ -1,33 +1,38 @@
-function calculateDepth(obj) {
-  if (typeof obj !== 'object' || obj === null) {
-    return 0;
+function createJoint(){
+  let joint = 100;
+  
+  function smokeSome(){
+    console.log("Somking....");
+    joint -= 100;
+    return joint
   }
 
-  let maxDepth = 0;
-
-  for (let key in obj) {
-    if (obj.hasOwnProperty(key)) {
-      if (typeof obj[key] === 'object') {
-        const currentDepth = 1 + calculateDepth(obj[key]);
-        maxDepth = Math.max(maxDepth, currentDepth);
-      }
-    }
+  function rolling(){
+    console.log("Rolling....");
+    joint += 100; 
+    return joint
   }
 
-  return maxDepth;
+  function getJoint(){
+    return joint
+  }
+
+  return{
+    smokeSome,
+    rolling,
+    getJoint
+  }
 }
 
-// Example usage:
-const nestedObject = {
-  a: 1,
-  b: {
-    c: 2,
-    d: {
-      e: 3
-    }
-  },
-  f: 4
-};
+const smoke = createJoint();
+console.log(smoke.smokeSome());
+console.log(smoke.getJoint());
+console.log(smoke.rolling());
+console.log(smoke.getJoint());
 
-const depth = calculateDepth(nestedObject);
-console.log("Depth of the nested object:", depth);
+const smokerOne = createJoint();
+smokerOne.smokeSome();
+console.log(smokerOne.getJoint());
+smokerOne.rolling();
+smokerOne.rolling();
+console.log(smokerOne.getJoint());

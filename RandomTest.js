@@ -1,38 +1,38 @@
-function createJoint(){
-  let joint = 100;
-  
-  function smokeSome(){
-    console.log("Somking....");
-    joint -= 100;
-    return joint
-  }
+let arr = [1, 2, 3, 4, 5];
 
-  function rolling(){
-    console.log("Rolling....");
-    joint += 100; 
-    return joint
+Array.prototype.myMap = function(cb){
+  let result = [];
+  for(let i = 0; i < this.length; i ++){
+    result.push(cb(this[i], i , this))
   }
-
-  function getJoint(){
-    return joint
-  }
-
-  return{
-    smokeSome,
-    rolling,
-    getJoint
-  }
+  return result;
 }
 
-const smoke = createJoint();
-console.log(smoke.smokeSome());
-console.log(smoke.getJoint());
-console.log(smoke.rolling());
-console.log(smoke.getJoint());
+let newArr = arr.myMap((x) => x + 1);
+console.log(arr);
+console.log(newArr);
 
-const smokerOne = createJoint();
-smokerOne.smokeSome();
-console.log(smokerOne.getJoint());
-smokerOne.rolling();
-smokerOne.rolling();
-console.log(smokerOne.getJoint());
+Array.prototype.myFilter = function(cb){
+  let result = [];
+  for(let i = 0; i < this.length; i ++){
+    if(cb(this[i] , i , this)) result.push(this[i])
+  }
+  return result;
+}
+
+let lessThanFive = arr.myFilter((x) => x <= 3);
+console.log(lessThanFive);
+
+
+Array.prototype.myReduce = function(cb , initialValue){
+  let accumulator = initialValue;
+  for(let i = 0; i < this.length; i ++){
+    accumulator = accumulator ? cb(accumulator , this[i] , i , this) : this[i]
+  }
+  return accumulator;
+}
+
+let sumofArr = arr.myReduce((acc, curr) => {
+  return acc + curr;
+}, 0);
+console.log(sumofArr);

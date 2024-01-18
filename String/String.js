@@ -7,7 +7,7 @@ function reverseString(str) {
 
 console.log(reverseString(str));
 
-//isPalindrome
+// (1)//isPalindrome
 function isPalindrome(str) {
   // Convert the string to lowercase and remove non-alphanumeric characters
   const cleanStr = str.toLowerCase().replace(/[^a-zA-Z0-9]/g, "");
@@ -21,7 +21,7 @@ function isPalindrome(str) {
 
 // console.log(isPalindrome("A man, a plan, a canal, Panama"));
 
-//find the longest words (tradational for loop)
+// (2)//find the longest words (tradational for loop)
 function findLongestWord(sentence) {
   let words = sentence.split(" ");
   let longestWord = "";
@@ -38,7 +38,7 @@ const long = findLongestWord(
 );
 console.log(long);
 
-//find the longest words (for of loop)
+// (3)//find the longest words (for of loop)
 function findLongestWordOne(sentence) {
   let words = sentence.split(" ");
   let longestWord = "";
@@ -55,7 +55,7 @@ const longOne = findLongestWord(
 );
 console.log(longOne);
 
-//find the longest word (reduce)
+// (4)//find the longest word (reduce)
 function findLongestWordTwo(sentence) {
   let words = sentence.split(" ");
   let longestWord = words.reduce((acc, curr) => {
@@ -67,6 +67,29 @@ const longTwo = findLongestWord(
   "wake up in the morning and I ask myself Is life worth living"
 );
 console.log(longTwo);
+
+
+// (5)//Find the First Non-Repeated Character in a String.
+function firstNonRepeatedChar(str){
+  for(let i = 0; i < str.length; i ++){
+      let char = str[i]
+      console.log(str.indexOf(char) ,str.lastIndexOf(char) , str[i]);
+      
+      if(str.indexOf(char) === str.lastIndexOf(char)){
+      console.log(str.indexOf(char) ,str.lastIndexOf(char) , str[i]);
+
+          return char
+      }
+  }
+  return null
+}
+
+// Example usage:
+const inputString = "high";
+const firstNonRepeated = firstNonRepeatedChar(inputString);
+console.log("The first non-repeated character is:", firstNonRepeated);
+
+
 
 //The factorial of a number is the multiplication of all the numbers between 1 and the number itself. It is written like this: n!. For example, 4! is shorthand for 4 × 3 × 2 × 1 = 24.
 //Factorial Calculation
@@ -103,22 +126,3 @@ function factorial(n) {
 //   console.log(`The factorial of ${number} is ${fact}.`);
 // }
 
-//Find the First Non-Repeated Character in a String.
-function firstNonRepeatedChar(str){
-    for(let i = 0; i < str.length; i ++){
-        let char = str[i]
-        console.log(str.indexOf(char) ,str.lastIndexOf(char) , str[i]);
-        
-        if(str.indexOf(char) === str.lastIndexOf(char)){
-        console.log(str.indexOf(char) ,str.lastIndexOf(char) , str[i]);
-
-            return char
-        }
-    }
-    return null
-}
-
-// Example usage:
-const inputString = "high";
-const firstNonRepeated = firstNonRepeatedChar(inputString);
-console.log("The first non-repeated character is:", firstNonRepeated);

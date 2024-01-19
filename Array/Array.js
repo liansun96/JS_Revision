@@ -1,3 +1,17 @@
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let copyArr = [];
+
+arr.forEach((x) => copyArr.push(x));
+// console.log(copyArr);
+
+for (x in arr) {
+  console.log(typeof x);
+}
+
+for (x of arr) {
+  console.log(typeof x);
+}
+
 const nums = [1, 2, 3, 4, 5];
 
 nums.forEach((x,i,arr)=> console.log(x,i,arr))

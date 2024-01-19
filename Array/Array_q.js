@@ -1,3 +1,4 @@
+// (1)//Find the name in the mixArray and reutrn as array
 let mixArray = [
   {},
   { name: "Lebron" },
@@ -18,14 +19,14 @@ const findName = mixArray.map((arr) => {
 
 console.log(findName.flat());
 
-function findName2(arr){
+function findName2(arr) {
   let result = [];
-  for(let i = 0; i < arr.length; i ++){
-    if(arr[i].hasOwnProperty("name")){
-      result.push(arr[i].name)
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].hasOwnProperty("name")) {
+      result.push(arr[i].name);
     }
   }
-  return result
+  return result;
 }
 
 console.log(findName2(mixArray));
@@ -38,65 +39,9 @@ const findName3 = mixArray.map((arr) => {
   return result;
 });
 
-// console.log(findName3.flat());
+console.log(findName3.flat());
 
-let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-let copyArr = [];
-
-arr.forEach((x) => copyArr.push(x));
-// console.log(copyArr);
-
-for (x in arr) {
-  console.log(typeof x);
-}
-
-for (x of arr) {
-  console.log(typeof x);
-}
-
-//Flatten Array Polyfill
-// Array.prototype.flatten = function () {
-//   let result = [];
-//   for (const value of this) {
-//     if (Array.isArray(value)) {
-//       console.log(value);
-//       const flattened = value.flatten();
-//       console.log(flattened);
-//       result.push(...flattened);
-//     } else {
-//       result.push(value);
-//     }
-//   }
-//   return result;
-// };
-
-//Array Prototype Flatten Polyfill
-Array.prototype.flatten = function () {
-  let result = [];
-  for (const value of this) {
-    if (Array.isArray(value)) {
-      console.log(value);
-      const flattened = value.flatten();
-      result.push(...flattened);
-    } else {
-      result.push(value);
-      console.log(value);
-    }
-  }
-  return result;
-};
-
-// console.log([].flatten());
-// console.log([1, 2, 3].flatten());
-// console.log([[1, 2], 3, 4].flatten());
-// console.log([[1, 2], [3, [4, 5]], 6].flatten());
-
-const nestedArray = [1, 2, [3, 4, [5, 6]]];
-
-//The flat() method with Infinity as an argument will recursively flatten sub-arrays.
-console.log(nestedArray.flat(Infinity));
-
-//Find the missing number in the array
+// (2)//Find the missing number in the array
 const numbers = [1, 2, 3, 4, 6, 7, 8];
 
 function findMissingNum(arr) {
@@ -109,7 +54,7 @@ function findMissingNum(arr) {
 
 console.log(findMissingNum(numbers));
 
-//Find the intersection of two Array
+// (3)//Find the intersection of two Array
 let a = [1, 2, 3, 4];
 let b = [3, 4, 5, 6];
 
@@ -119,15 +64,7 @@ function interset(a, b) {
 
 console.log(interset(a, b));
 
-//Sum of Array element (tradational for loop)
-// function sumArray(arr) {
-//   let result = 0;
-//   for (let i = 0; i < arr.length; i++) {
-//     result += arr[i];
-//   }
-//   return result;
-// }
-
+// (4)//Sum of Array element (tradational for loop)
 function sumArray(arr) {
   let result = 0;
   for (let i = 0; i < arr.length; i++) {
@@ -139,7 +76,7 @@ function sumArray(arr) {
 const nums = [1, 2, 3, 4, 5];
 console.log(sumArray(nums));
 
-// Finding the Maximum Value
+// (5)//Finding the Maximum Value
 //Question: Create a function that returns the maximum value from an array.
 function maxArray(arr) {
   if (arr.length === 0) return null;
@@ -155,7 +92,7 @@ function maxArray(arr) {
 const values = [3, 7, 2, 9, 1, 5];
 console.log(maxArray(values));
 
-//Reversing an Array
+// (6)//Reversing an Array
 //Question: Create a function that reverses an array without using the built-in reverse() method.
 function reverseArray(arr) {
   let result = [];
@@ -168,23 +105,18 @@ function reverseArray(arr) {
 const original = [1, 2, 3, 4, 5, 6, 7];
 console.log(reverseArray(original)); // Output: [5, 4, 3, 2, 1]
 
-//Finding Average of Array Elements
-// function arrayAverage(arr) {
-//   let average = 0;
-//   let sum = arr.reduce((acc, val) => acc + val, 0);
-//   average = sum / arr.length;
-//   return average;
-// }
-
-function arrayAverage(arr) {  
+// (7)//Finding Average of Array Elements
+function arrayAverage(arr) {
+  let average = 0;
   let sum = arr.reduce((acc, val) => acc + val, 0);
-  return sum / arr.length;
+  average = sum / arr.length;
+  return average;
 }
 
 const someArray = [10, 20, 30, 40, 50];
 console.log(arrayAverage(someArray));
 
-//Checking if array is sorted
+// (8)//Checking if array is sorted
 function isArraySorted(arr) {
   for (let i = 0; i < arr.length - 1; i++) {
     if (arr[i] > arr[i + 1]) return false;
@@ -197,7 +129,7 @@ const unsortedArray = [7, 2, 9, 1, 5];
 console.log(isArraySorted(sortedArray)); // Output: true
 console.log(isArraySorted(unsortedArray)); // Output: false
 
-//Find second largest number ih Array
+// (9)//Find second largest number ih Array
 function findSecondLargest(arr) {
   const sortedArr = arr.slice().sort((a, b) => b - a);
   // console.log(sortedArr[1]);
@@ -206,7 +138,7 @@ function findSecondLargest(arr) {
 const randomNumbers = [10, 5, 8, 20, 15];
 console.log(findSecondLargest(randomNumbers));
 
-//Looping Nested Array
+// (10)//Looping Nested Array
 let nestedArr = [
   [1, 2, 3],
   [4, 5, 6],
@@ -215,7 +147,7 @@ let nestedArr = [
 
 function LoopNestedArr(arr) {
   let result = [];
-  for (let i = 0; i < arr.length; i++) {  
+  for (let i = 0; i < arr.length; i++) {
     for (let j = 0; j < arr[i].length; j++) {
       // console.log(arr[i][j]);
       result.push(arr[i][j]);
@@ -224,22 +156,15 @@ function LoopNestedArr(arr) {
   return result;
 }
 
-for (let i = 0; i < nestedArr.length; i++) {
-  for (let j = 0; j < nestedArr[i].length; j++) {
-    // console.log(nestedArr[i][j]);
-  }
-}
-
 console.log(LoopNestedArr(nestedArr));
 
-//Counting Occurrences in an Array
+// (11)//Counting Occurrences in an Array
 //How would you count the occurrences of elements in an array?
 let countingArr = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4];
 let frequencyCounter = countingArr.reduce((acc, val) => {
   acc[val] = (acc[val] || 0) + 1;
-  console.log(acc[val] , acc);
+  console.log(acc[val], acc);
   return acc;
 }, {});
 
 console.log(frequencyCounter);
-

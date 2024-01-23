@@ -22,6 +22,7 @@ console.log(nestedArray.flat(Infinity));
 let arr = [1, 2, 3, 4, 5];
 
 // (2)//Array method map polyfill
+
 Array.prototype.myMap = function (cb) {
   let result = [];
   for (let i = 0; i < this.length; i++) {
@@ -35,6 +36,7 @@ console.log(arr);
 console.log(newArr);
 
 // (3)//Array method filter polyfill
+
 Array.prototype.myFilter = function (cb) {
   let result = [];
   for (let i = 0; i < this.length; i++) {
@@ -47,12 +49,13 @@ let lessThanFive = arr.myFilter((x) => x <= 3);
 console.log(lessThanFive);
 
 // (4)//Array method reduce polyfill
+
 Array.prototype.myReduce = function (cb, initialValue) {
-  let accmulator = initialValue;
+  let accumulator = initialValue;
   for (let i = 0; i < this.length; i++) {
-    accmulator = accmulator ? cb(accmulator, this[i], i, this) : this[i];
+    accumulator = accumulator ? cb(accumulator, this[i], i, this) : this[i];
   }
-  return accmulator;
+  return accumulator;
 };
 
 let sumofArr = arr.myReduce((acc, curr) => {

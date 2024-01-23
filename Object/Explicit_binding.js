@@ -2,7 +2,7 @@ var obj = { name: "Lian" };
 //.call
 function sayHello(age) {
   return "Hello " + this.name + " is " + age;
-}zx
+}
 console.log(sayHello.call(obj, 27));
  
 //.call polyfill

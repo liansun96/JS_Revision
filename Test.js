@@ -8,12 +8,12 @@ function sayHello(age){
 }
 
 Function.prototype.myCall = function(context = {} , ...args){
-    if(typeof this !== 'function'){
-        throw new Error( this + 'is not callable')
+    if(typeof this !== "function"){
+        throw new Error(this + ' is not callable')
     }
 
     context.fn = this;
-    const result = context.fn(...args);
+    const result = context.fn(...args)
     delete context.fn;
     return result;
 }
@@ -28,18 +28,16 @@ function intruduce(passion ,profession ){
 }
 
 Function.prototype.myApply = function(context = {} , args = []){
-    if(typeof this !== 'function'){
-        throw new Error( this + 'is not callable')
+    if(typeof this !== "function"){
+        throw new Error(this + " is not callable")
     }
-
     if(!Array.isArray(args)){
-        throw new Error("CreateListFromArrayLike called on non-object");
+        throw new Error("CreateListFromArrayLike called on non-object")
     }
 
     context.fn = this;
-    const result = context.fn(...args);
+    let result = context.fn(...args)
     delete context.fn;
-
     return result;
 }
 
@@ -53,13 +51,13 @@ function hobby(desginer,rapper,value){
 }
 
 Function.prototype.myBind = function(context = {} , ...args){
-    if(typeof this !== 'function'){
-        throw new Error('Cannot be bound as it is not callable')
+    if(typeof this !==  "function"){
+        throw new Error(`Can't be bound as it's not callable`)
     }
 
     context.fn = this;
     return function(...newArgs){
-        return context.fn(...args, ...newArgs)
+        return context.fn(...args,...newArgs)
     }
 }
 

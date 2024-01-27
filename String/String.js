@@ -19,7 +19,7 @@ function isPalindrome(str) {
   return cleanStr === reversedStr;
 }
 
-// console.log(isPalindrome("A man, a plan, a canal, Panama"));
+console.log(isPalindrome("A man, a plan, a canal, Panama"));
 
 // (2)//find the longest words (tradational for loop)
 function findLongestWord(sentence) {
@@ -90,39 +90,30 @@ const firstNonRepeated = firstNonRepeatedChar(inputString);
 console.log("The first non-repeated character is:", firstNonRepeated);
 
 
-
-//The factorial of a number is the multiplication of all the numbers between 1 and the number itself. It is written like this: n!. For example, 4! is shorthand for 4 × 3 × 2 × 1 = 24.
-//Factorial Calculation
-function factorial(n) {
-  if (n === 0 || n === 1) {
-    return 1;
+// (6)//Count Vowel in a string
+function countVowels(str){
+  const vowels = "aeiouAEIOU";
+  let count = 0;
+  for(let char of str){
+    if(vowels.includes(char)){
+      count ++
+    }
   }
-  return n * factorial(n - 1);
+  return count;
+}
+console.log(countVowels(str));
+
+
+// (7)//Count Ouucrences of a character
+function countOccurrences(str , char){
+  let count = 0;
+  for(let i = 0; i < str.length; i++){
+    if(str[i] === char){
+      count ++
+    }
+  }
+  return count;
 }
 
-// console.log(factorial(3));
-
-//Factorial Calculation using (for...loop)
-// program to find the factorial of a number
-// take input from the user
-// const number = parseInt(prompt("Enter a positive integer: "));
-
-// checking if number is negative
-// if (number < 0) {
-//   console.log("Error! Factorial for negative number does not exist.");
-// }
-
-// if number is 0
-// else if (number === 0) {
-//   console.log(`The factorial of ${number} is 1.`);
-// }
-
-// if number is positive
-// else {
-//   let fact = 1;
-//   for (i = 1; i <= number; i++) {
-//     fact *= i;
-//   }
-//   console.log(`The factorial of ${number} is ${fact}.`);
-// }
-
+console.log(countOccurrences('testing' , 't'));
+console.log(countOccurrences('appleppp' , 'p'));

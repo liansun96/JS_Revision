@@ -1,10 +1,10 @@
-Array.prototype.myMap = function (cb) {
+Array.prototype.myMap = function(cb){
   let result = [];
-  for (let i = 0; i < this.length; i++) {
-    result.push(cb(this[i], i, this));
+  for(let i = 0; i < this.length; i ++){
+    result.push(cb(this[i], i , this))
   }
   return result;
-};
+}
 
 const arr = [1, 2, 3, 4, 5];
 arr.myMap((z)=> console.log(z += 1))
@@ -12,15 +12,16 @@ const arr1 = arr.myMap((x) => (x *= 5));
 console.log(arr1);
 console.log(arr);
 
-Array.prototype.myFilter = function (cb) {
+Array.prototype.myFilter = function(cb){
   let result = [];
-  for (i = 0; i < this.length; i++) {
-    if (cb(this[i], i, this)) result.push(this[i]);
+  for(let i = 0; i < this.length; i++){
+    if(cb(this[i], i , this)) result.push(this[i])
   }
   return result;
-};
+}
 
-
+const lessThanTwo = arr.myFilter((x)=> x<2)
+console.log(lessThanTwo);
 // Array.prototype.myReduce = function (cb, initialValue) {
 //   let accumulator = initialValue;
 //   for (i = 0; i < this.length; i++) {
@@ -30,13 +31,14 @@ Array.prototype.myFilter = function (cb) {
 //   return accumulator;
 // };
 
-Array.prototype.myReduce = function (cb, initialValue) {
+Array.prototype.myReduce = function(cb , initialValue){
   let accumulator = initialValue;
-  for (i = 0; i < this.length; i++) {
-    accumulator = accumulator ? cb(accumulator, this[i], i, this) : this[i];
+  for(let i = 0; i < this.length; i ++){
+    accumulator = accumulator ? cb(accumulator, this[i] , i , this) : this[i]
   }
   return accumulator;
-};
+}
+
 
 const sumOfnums = () => {
   return arr.myReduce((prev, curr) => {
@@ -44,4 +46,4 @@ const sumOfnums = () => {
   }, 0);
 };
 
-// console.log(sumOfnums(arr));
+console.log(sumOfnums(arr));

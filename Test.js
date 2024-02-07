@@ -1,67 +1,62 @@
-var obj = {
-    name : 'Lian',    
-}
-
-//.call()
-function sayHello(age){
-    return "Hello " + this.name + " is " + age
-}
-
-Function.prototype.myCall = function(context = {} , ...args){
-    if(typeof this !== "function"){
-        throw new Error(this + ' is not callable')
+function maxArray(arr){
+    if(arr.length === 0) return null;
+    let max = arr[0];
+    for(let i = 0; i < arr.length; i ++){
+        if(arr[i] > max){
+            max = arr[i]
+        }
     }
+    return max
+}
 
-    context.fn = this;
-    const result = context.fn(...args)
-    delete context.fn;
+arr = [1,2,3,4,5,6,7,8,9]
+console.log(maxArray(arr));
+
+//reverse array
+function reverseArr(arr){
+    let result = [];
+    for(let i = arr.length -1; i >= 0; i --){
+        result.push(arr[i])
+    }
     return result;
 }
 
-console.log(sayHello.call(obj, 27));
-console.log(sayHello.myCall(obj, 27));
+console.log(reverseArr(arr));
 
-
-//.apply()
-function intruduce(passion ,profession ){
-    return "Hey " + this.name + " is " + passion + " and he is a professional " + profession 
+//find missing num in the array
+function findMissingNum(arr){
+    let n = arr.length + 1;
+    let sum = (n * (n + 1)) / 2;
+    let arrSum = arr.reduce((acc, val)=> acc + val , 0)
+    return sum - arrSum
 }
 
-Function.prototype.myApply = function(context = {} , args = []){
-    if(typeof this !== "function"){
-        throw new Error(this + " is not callable")
-    }
-    if(!Array.isArray(args)){
-        throw new Error("CreateListFromArrayLike called on non-object")
-    }
+console.log(findMissingNum([1,2,4,5,6]));
 
-    context.fn = this;
-    let result = context.fn(...args)
-    delete context.fn;
+//find the intersection of two array
+let a = [1, 2, 3, 4];
+let b = [3, 4, 5, 6];
+
+function intersetOfTwoArray(a, b){
+    return a.filter((value)=> b.includes(value))
+}
+console.log(intersetOfTwoArray(a , b));
+
+//Sum of array element
+function sumOfArray(arr){
+    let result = 0;
+    for(let i = 0; i < arr.length; i ++){
+        result += arr[i]
+    }
     return result;
 }
+console.log(sumOfArray(arr));
 
-console.log(intruduce.apply(obj , ['guitarist' , 'devo']));
-console.log(intruduce.myApply(obj , ['guitarist' , 'devo']));
-
-
-//.bind()
-function hobby(desginer,rapper,value){
-    return `Yoo .. this is ${this.name} and my hobby is ${value ? desginer : rapper} `
+//finding average of array elements
+function averageOfArr(arr){
+    let average = 0;
+    let arrSum = arr.reduce((acc , val ) => acc + val , 0);
+    average = arrSum / arr.length;
+    return average
 }
-
-Function.prototype.myBind = function(context = {} , ...args){
-    if(typeof this !==  "function"){
-        throw new Error(`Can't be bound as it's not callable`)
-    }
-
-    context.fn = this;
-    return function(...newArgs){
-        return context.fn(...args,...newArgs)
-    }
-}
-
-const interest = hobby.bind(obj)
-const sayHobby = hobby.myBind(obj)
-console.log(sayHobby("to be a fashion desginer" , "rapping"  , false));
-console.log(sayHobby("to be a fashion desginer" , "rapping"  , true));
+console.log(averageOfArr(arr));

@@ -27,7 +27,7 @@ console.log(reverseArr(arr));
 function findMissingNum(arr){
     let n = arr.length + 1;
     let sum = (n * (n + 1)) / 2;
-    let arrSum = arr.reduce((acc, val)=> acc + val , 0)
+    let arrSum = arr.reduce((acc , val) => acc + val , 0);
     return sum - arrSum
 }
 
@@ -60,3 +60,45 @@ function averageOfArr(arr){
     return average
 }
 console.log(averageOfArr(arr));
+
+//checking if array is sorted
+function isArrSorted(arr){
+    for(let i = 0; i < arr.length; i ++){
+        if(arr[i] > arr[i + 1]) return false
+    }
+    return true;
+} 
+let unSort = [6,5,71,43,2]
+console.log(isArrSorted(arr));
+console.log(isArrSorted(unSort));
+
+//find the second largest number
+function secondLargestNum(arr){
+    const sortArr = arr.slice().sort((a,b)=> b -a)
+    return sortArr[1];
+}
+console.log(secondLargestNum(unSort));
+
+//looping nested array
+let nestedArr = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+  ];
+
+function loopNestedArr(arr){
+    let result = [];
+    for(let i = 0; i < arr.length; i++){
+        for(let j = 0; j < arr.length; j++){
+            result.push(arr[i][j])
+        }
+    }
+    return result;
+}
+console.log(loopNestedArr(nestedArr));
+
+//
+function removeElement(arr , target){
+    return arr.filter((item) => item !== target)
+}
+console.log(removeElement(arr , 1));

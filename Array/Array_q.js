@@ -168,3 +168,10 @@ let frequencyCounter = countingArr.reduce((acc, val) => {
 }, {});
 
 console.log(frequencyCounter);
+
+// (12)//Remove all ouucrrences in an Array
+// Write a function to remove all occurrences of a specific element from an array.
+function removeElement(arr ,target){
+  return arr.filter((item) => item !== target)
+}
+console.log(removeElement(numbers , 4));

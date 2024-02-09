@@ -98,7 +98,7 @@ function reverseArray(arr) {
   let result = [];
   for (let i = arr.length - 1; i >= 0; i--) {
     result.push(arr[i]);
-  }
+  } 
   return result;
 }
 
@@ -109,7 +109,7 @@ console.log(reverseArray(original)); // Output: [5, 4, 3, 2, 1]
 function arrayAverage(arr) {
   let average = 0;
   let sum = arr.reduce((acc, val) => acc + val, 0);
-  average = sum / arr.length;
+  average = sum / arr.length;  
   return average;
 }
 
@@ -163,7 +163,7 @@ console.log(LoopNestedArr(nestedArr));
 let countingArr = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4];
 let frequencyCounter = countingArr.reduce((acc, val) => {
   acc[val] = (acc[val] || 0) + 1;
-  console.log(acc[val], acc);
+  // console.log(acc[val], acc);
   return acc;
 }, {});
 
@@ -171,7 +171,7 @@ console.log(frequencyCounter);
 
 // (12)//Remove all ouucrrences in an Array
 // Write a function to remove all occurrences of a specific element from an array.
-function removeElement(arr ,target){
-  return arr.filter((item) => item !== target)
+function removeElement(arr, target) {
+  return arr.filter((item) => item !== target);
 }
-console.log(removeElement(numbers , 4));
+console.log(removeElement(numbers, 4));

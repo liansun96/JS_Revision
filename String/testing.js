@@ -29,6 +29,7 @@ function closeSecondDiv(str) {
   let divCount = 0;
   for (let i = 0; i < str.length; i++) {
     if (str[i] === "<") {
+      console.log(str[i], i);
       divCount++;
     }
     if (str[i] === "<" && divCount % 2 === 0) {

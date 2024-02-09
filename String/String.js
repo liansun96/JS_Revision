@@ -116,13 +116,13 @@ console.log(countOccurrences("testing", "t"));
 console.log(countOccurrences("appleppp", "p"));
 
 // (8)//Capitalize One Letter Apart for given string
-function capsOneLetterApart(str) {
-  let result = "";
-  for (let i = 0; i < str.length; i++) {
-    if (i % 2 === 0) {
+function capsOneLetterApart(str){
+  let result = ''
+  for(let i = 0; i < str.length; i ++){
+    if( i % 2 === 0){
       result += str[i].toUpperCase();
-    } else {
-      result += str[i];
+    }else{
+      result += str[i]
     }
   }
   return result;

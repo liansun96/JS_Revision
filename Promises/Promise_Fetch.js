@@ -1,28 +1,40 @@
-const url = "https://fakestoreapi.com/products";
+const url = "https://fakestoreapi.com/product/1";
 
+// function fetchData(url){
+//   return new Promise((resolve, reject) => {
+//       fetch(url).then((res)=>{
+//         if(!res.ok){
+//           throw new Error(`Http error status:${res.status}`)
+//         }
+//         return res.json()
+//       }).then((data)=>{
+//         resolve(data)
+//       }).catch((err)=>{
+//         reject(err)
+//       })
+//   })
+// }
 
-function fetchData(url){
-  return new Promise((resolve, reject) => {
-    fetch(url).then((res)=>{
-      if(!res.ok){
-        throw new Error(`Http error status: ${res.status}`)
-      }
-      return res.json()
-    }).then((data)=>{
-      resolve(data)
-    }).catch((err)=>{
-      console.error(err);
-    })
-  })
+async function fetchData(url) {
+  try {
+    let res = await fetch(url);
+    if (!res.ok) {
+      throw new Error(`Http error status:${res.status}`);
+    }
+    let data = res.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
 }
 
-fetchData(url).then((data)=>{
-  console.log(data);
-}).catch((err)=>{
-  console.error(err);
-})
-
-
+fetchData(url)
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 
 //Promise fetch()
 // function fetchData(url) {
@@ -61,7 +73,6 @@ fetchData(url).then((data)=>{
 //       });
 //   });
 // }
-
 
 // fetchData(url)
 //   .then((data) => {
@@ -110,18 +121,18 @@ fetchData(url).then((data)=>{
 //     console.error(err);
 // })
 
-const fetchItem = async (url) => {
-  try {
-    const res = await fetch(url);
-    if (!res.ok) {
-      throw new Error(`Http error status : ${res.status}`);
-    }
-    const data = res.json();
-    return data;
-  } catch (error) {
-    console.error(error);
-  }
-};
+// const fetchItem = async (url) => {
+//   try {
+//     const res = await fetch(url);
+//     if (!res.ok) {
+//       throw new Error(`Http error status : ${res.status}`);
+//     }
+//     const data = res.json();
+//     return data;
+//   } catch (error) {
+//     console.error(error);
+//   }
+// };
 
 // fetchItem(url).then((data) => {
 //   console.log(data);

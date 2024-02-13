@@ -11,7 +11,7 @@ const options = {
 //     fetch(url)
 //       .then((res) => {
 //         if (!res.ok) {
-//           throw new Error(`Http error status : ${res.status}`);
+//           throw new Error(`Http error status: ${res.status}`);
 //         }
 //         return res.json();
 //       })
@@ -26,11 +26,11 @@ const options = {
 
 async function fetchData(url) {
   try {
-    const res = await fetch(url);
+    let res = await fetch(url);
     if (!res.ok) {
-      throw new Error(`Http error ststau : ${res.status}`);
+      throw new Error(`Http error status: ${res.status}`);
     }
-    const data = res.json();
+    let data = res.json();
     return data;
   } catch (error) {
     console.error(error);

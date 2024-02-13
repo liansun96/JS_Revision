@@ -127,19 +127,22 @@ function calculateDepth(obj) {
     return 0;
   }
 
-  const maxDepth = 0;
+  let maxDepth = 0;
 
   for (let key in obj) {
+    console.log(key);
     if (obj.hasOwnProperty(key)) {
       if (typeof obj[key] === "object") {
         const currentDepth = 1 + calculateDepth(obj[key]);
         maxDepth = Math.max(maxDepth, currentDepth);
+        console.log(maxDepth, currentDepth);
       }
     }
   }
 
-  return maxDepth;
+  return maxDepth === 0 ? 1 : maxDepth;
 }
 
 const nestedObject = { a: { b: { c: { d: 1 } } }, e: 2 };
-console.log(calculateDepth(nestedObject));
+const nestedObjectSm = { a: { b: { c: 3 } }, e: 2 };
+console.log(calculateDepth(nestedObjectSm));

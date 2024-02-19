@@ -56,7 +56,15 @@ function findName(obj) {
   }
   return result;
 }
-// console.log(findName(myObject))
+
+function findName(obj) {
+  let result = "";
+  if (obj.hasOwnProperty("name")) {
+    result += obj.name;
+  }
+  return result;
+}
+console.log(findName(myObject));
 
 const population = {
   male: 4,
@@ -133,6 +141,7 @@ function calculateDepth(obj) {
     console.log(key);
     if (obj.hasOwnProperty(key)) {
       if (typeof obj[key] === "object") {
+        console.log(obj[key]);
         const currentDepth = 1 + calculateDepth(obj[key]);
         maxDepth = Math.max(maxDepth, currentDepth);
         console.log(maxDepth, currentDepth);
